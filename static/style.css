@@ -5,15 +5,12 @@
     --surface:      #0e0e1a;
     --surface-2:    #141428;
     --border:       #1c1c35;
-
     --accent:       #7c3aed;
     --accent-light: #a78bfa;
     --accent-glow:  rgba(124, 58, 237, 0.22);
-
     --text:         #e2e8f0;
     --text-sub:     #94a3b8;
     --text-muted:   #4b5563;
-
     --safe:         #10b981;
     --safe-bg:      rgba(16, 185, 129, 0.1);
     --low:          #f59e0b;
@@ -39,7 +36,6 @@ body {
 input { font-family: inherit; }
 input::placeholder { color: var(--text-muted); }
 
-/* ── Header ─────────────────────────────────────────────────────────────────── */
 .header {
     display: flex;
     align-items: center;
@@ -72,7 +68,6 @@ input::placeholder { color: var(--text-muted); }
 }
 .nav-link:hover { color: var(--text-sub); }
 
-/* ── Layout ──────────────────────────────────────────────────────────────────── */
 .layout {
     display: grid;
     grid-template-columns: 1fr 370px;
@@ -89,7 +84,6 @@ input::placeholder { color: var(--text-muted); }
 
 .chat-panel { border-right: 1px solid var(--border); }
 
-/* ── Panel header ────────────────────────────────────────────────────────────── */
 .panel-header {
     display: flex;
     align-items: center;
@@ -115,7 +109,6 @@ input::placeholder { color: var(--text-muted); }
     animation: blink 2s ease-in-out infinite;
 }
 
-/* ── Messages area ────────────────────────────────────────────────────────────── */
 .messages {
     flex: 1;
     overflow-y: auto;
@@ -143,7 +136,6 @@ input::placeholder { color: var(--text-muted); }
     opacity: 0.4;
 }
 
-/* ── Message card ─────────────────────────────────────────────────────────────── */
 .message-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -153,10 +145,10 @@ input::placeholder { color: var(--text-muted); }
     animation: fadeUp 0.25s ease;
 }
 
-.message-card.risk-safe   { border-left-color: var(--safe);     }
-.message-card.risk-low    { border-left-color: var(--low);      }
-.message-card.risk-medium { border-left-color: var(--medium);   }
-.message-card.risk-high   { border-left-color: var(--high);     }
+.message-card.risk-safe     { border-left-color: var(--safe);     }
+.message-card.risk-low      { border-left-color: var(--low);      }
+.message-card.risk-medium   { border-left-color: var(--medium);   }
+.message-card.risk-high     { border-left-color: var(--high);     }
 .message-card.risk-critical {
     border-left-color: var(--critical);
     background: rgba(220, 38, 38, 0.04);
@@ -194,7 +186,6 @@ input::placeholder { color: var(--text-muted); }
     align-items: center;
 }
 
-/* ── Risk badge ───────────────────────────────────────────────────────────────── */
 .risk-badge {
     display: inline-block;
     font-size: 9px;
@@ -220,7 +211,6 @@ input::placeholder { color: var(--text-muted); }
     padding: 1px 6px;
 }
 
-/* ── Input area ──────────────────────────────────────────────────────────────── */
 .input-area {
     padding: 14px;
     border-top: 1px solid var(--border);
@@ -290,7 +280,6 @@ input::placeholder { color: var(--text-muted); }
 }
 .clear-btn:hover { border-color: var(--high); color: var(--high); }
 
-/* ── Pipeline panel ──────────────────────────────────────────────────────────── */
 .pipeline-panel {
     background: var(--surface);
     overflow-y: auto;
@@ -304,7 +293,6 @@ input::placeholder { color: var(--text-muted); }
     flex-direction: column;
 }
 
-/* ── Pipeline step ────────────────────────────────────────────────────────────── */
 .pipeline-step {
     display: flex;
     gap: 11px;
@@ -320,8 +308,8 @@ input::placeholder { color: var(--text-muted); }
     box-shadow: 0 0 0 1px var(--accent-glow), 0 0 18px var(--accent-glow);
 }
 
-.pipeline-step.done-safe     { border-color: rgba(16, 185, 129, 0.35); }
-.pipeline-step.done-flagged  { border-color: rgba(239, 68, 68, 0.35);  }
+.pipeline-step.done-safe    { border-color: rgba(16, 185, 129, 0.35); }
+.pipeline-step.done-flagged { border-color: rgba(239, 68, 68, 0.35);  }
 
 .step-num {
     width: 26px;
@@ -371,7 +359,6 @@ input::placeholder { color: var(--text-muted); }
     white-space: pre-wrap;
 }
 
-/* ── Connector ────────────────────────────────────────────────────────────────── */
 .connector {
     display: flex;
     padding-left: 22px;
@@ -390,7 +377,6 @@ input::placeholder { color: var(--text-muted); }
     box-shadow: 0 0 6px var(--accent);
 }
 
-/* ── Verdict (step 5) ──────────────────────────────────────────────────────────── */
 .verdict-step { border-width: 2px; }
 
 .verdict-value {
@@ -408,7 +394,6 @@ input::placeholder { color: var(--text-muted); }
 .verdict-high     { color: var(--high);     }
 .verdict-critical { color: var(--critical); }
 
-/* ── Admin layout ─────────────────────────────────────────────────────────────── */
 .admin-layout {
     max-width: 860px;
     margin: 0 auto;
@@ -480,7 +465,6 @@ input::placeholder { color: var(--text-muted); }
 
 .conn-dot.error { background: var(--high); animation: none; }
 
-/* ── Alert card ───────────────────────────────────────────────────────────────── */
 .alert-list {
     display: flex;
     flex-direction: column;
@@ -558,7 +542,6 @@ input::placeholder { color: var(--text-muted); }
     gap: 5px;
 }
 
-/* ── Empty admin state ──────────────────────────────────────────────────────────── */
 .empty-admin {
     text-align: center;
     padding: 56px 20px;
@@ -576,7 +559,6 @@ input::placeholder { color: var(--text-muted); }
     opacity: 0.3;
 }
 
-/* ── Toast ─────────────────────────────────────────────────────────────────────── */
 .toast-container {
     position: fixed;
     top: 16px;
@@ -615,7 +597,6 @@ input::placeholder { color: var(--text-muted); }
     word-break: break-word;
 }
 
-/* ── Keyframes ──────────────────────────────────────────────────────────────────── */
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(6px); }
     to   { opacity: 1; transform: translateY(0); }

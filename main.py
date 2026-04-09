@@ -40,11 +40,9 @@ async def send(body: MessageIn):
         "analysis": analysis,
     }
     messages.append(msg)
-
     if analysis["is_flagged"]:
         for q in admin_queues:
             await q.put(msg)
-
     return msg
 
 
@@ -66,7 +64,6 @@ def get_flagged():
 
 @app.get("/admin/stream")
 async def admin_stream():
-    """Server-Sent Events stream — sends only NEW flagged messages."""
     q: asyncio.Queue = asyncio.Queue()
     admin_queues.append(q)
 

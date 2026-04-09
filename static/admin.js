@@ -1,4 +1,3 @@
-/* ── Utilities ────────────────────────────────────────────────────────────── */
 const $ = id => document.getElementById(id);
 
 function esc(s) {
@@ -7,7 +6,6 @@ function esc(s) {
         .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
-/* ── Stats ────────────────────────────────────────────────────────────────── */
 const counts = { total: 0, critical: 0, high: 0, medium: 0 };
 
 function bumpStats(level) {
@@ -19,7 +17,6 @@ function bumpStats(level) {
     $("stat-medium").textContent   = counts.medium;
 }
 
-/* ── Render an alert card ─────────────────────────────────────────────────── */
 function addAlert(msg, prepend = false) {
     const list = $("alert-list");
     const empty = list.querySelector(".empty-admin");
@@ -52,7 +49,6 @@ function addAlert(msg, prepend = false) {
     }
 }
 
-/* ── Toast notification ──────────────────────────────────────────────────── */
 function showToast(msg) {
     const a = msg.analysis;
     const toast = document.createElement("div");
@@ -64,7 +60,6 @@ function showToast(msg) {
     $("toast-container").appendChild(toast);
     setTimeout(() => toast.remove(), 5000);
 
-    /* subtle alert beep via Web Audio API */
     try {
         const ctx = new AudioContext();
         const osc = ctx.createOscillator();
@@ -80,18 +75,17 @@ function showToast(msg) {
     } catch (_) {}
 }
 
-/* ── SSE connection ───────────────────────────────────────────────────────── */
 function connect() {
-    const dot   = $("conn-dot");
+    const dot = $("conn-dot");
     const label = $("conn-label");
 
-    dot.className   = "conn-dot";
+    dot.className = "conn-dot";
     label.textContent = "Connecting…";
 
     const es = new EventSource("/admin/stream");
 
     es.onopen = () => {
-        dot.className   = "conn-dot";
+        dot.className = "conn-dot";
         label.textContent = "Live";
     };
 
@@ -102,14 +96,13 @@ function connect() {
     };
 
     es.onerror = () => {
-        dot.className   = "conn-dot error";
+        dot.className = "conn-dot error";
         label.textContent = "Reconnecting…";
         es.close();
         setTimeout(connect, 3000);
     };
 }
 
-/* ── Init: load history then open live stream ─────────────────────────────── */
 fetch("/admin/flagged")
     .then(r => r.json())
     .then(msgs => msgs.forEach(m => addAlert(m, false)))
