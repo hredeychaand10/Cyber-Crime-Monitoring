@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberWatch — Chat Monitor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="brand">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        CyberWatch
+    </div>
+    <a href="/admin" class="nav-link">Admin Dashboard →</a>
+</header>
+
+<main class="layout">
+
+    <!-- ── Left: Chat stream ─────────────────────────────────────── -->
+    <section class="chat-panel">
+        <div class="panel-header">
+            <span class="panel-title">Message Stream</span>
+            <div style="display:flex;align-items:center;gap:12px">
+                <button class="clear-btn" onclick="clearSession()">Clear</button>
+                <span class="live-badge">● LIVE</span>
+            </div>
+        </div>
+
+        <div class="messages" id="messages">
+            <div class="empty-state">
+                <span>💬</span>
+                No messages yet.<br>Send one to begin monitoring.
+            </div>
+        </div>
+
+        <div class="input-area">
+            <input id="sender" class="sender-input" type="text"
+                   placeholder="Name" maxlength="40" autocomplete="off">
+            <div class="message-row">
+                <input id="content" class="message-input" type="text"
+                       placeholder="Enter message to analyze…" maxlength="500" autocomplete="off">
+                <button id="send-btn" class="send-btn" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Right: Analysis pipeline ──────────────────────────────── -->
+    <section class="pipeline-panel">
+        <div class="panel-header">
+            <span class="panel-title">Analysis Pipeline</span>
+        </div>
+
+        <div class="pipeline">
+
+            <div class="pipeline-step" id="step-1">
+                <div class="step-num">01</div>
+                <div class="step-body">
+                    <div class="step-label">Input Stream</div>
+                    <div class="step-value" id="val-1">—</div>
+                </div>
+            </div>
+
+            <div class="connector"><div class="connector-line" id="conn-1"></div></div>
+
+            <div class="pipeline-step" id="step-2">
+                <div class="step-num">02</div>
+                <div class="step-body">
+                    <div class="step-label">Preprocessing</div>
+                    <div class="step-value" id="val-2">—</div>
+                </div>
+            </div>
+
+            <div class="connector"><div class="connector-line" id="conn-2"></div></div>
+
+            <div class="pipeline-step" id="step-3">
+                <div class="step-num">03</div>
+                <div class="step-body">
+                    <div class="step-label">Pattern Matching</div>
+                    <div class="step-value" id="val-3">—</div>
+                </div>
+            </div>
+
+            <div class="connector"><div class="connector-line" id="conn-3"></div></div>
+
+            <div class="pipeline-step" id="step-4">
+                <div class="step-num">04</div>
+                <div class="step-body">
+                    <div class="step-label">Risk Evaluation</div>
+                    <div class="step-value" id="val-4">—</div>
+                </div>
+            </div>
+
+            <div class="connector"><div class="connector-line" id="conn-4"></div></div>
+
+            <div class="pipeline-step verdict-step" id="step-5">
+                <div class="step-num">05</div>
+                <div class="step-body">
+                    <div class="step-label">Output</div>
+                    <div class="verdict-value" id="val-5">—</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
